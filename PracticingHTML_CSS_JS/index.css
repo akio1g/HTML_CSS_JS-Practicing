@@ -1,0 +1,37 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.671);
+    font-family:Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+header > div {
+    padding: 5px;
+}
+
+img {
+    max-block-size: 200px;
+    border-radius: 10px;
+}
+
+
+.info > ul {
+    list-style-type: none;
+    padding: 15px 0px;
+}
+
+.info > ul > li {
+    margin: 5px 0px;
+}
