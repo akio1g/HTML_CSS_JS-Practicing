@@ -1,63 +1,116 @@
 * {
-    margin: 0%;
-    padding: 0%;
+    padding:0;
+    margin:0;
+    vertical-align:baseline;
+    list-style:none;
     box-sizing: border-box;
+    }
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body { 
-    font-family:Arial, Helvetica, sans-serif;
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+/* HEADER */
 
 .menu {
-    margin: 0;
-    list-style: none; /* tirar marcador */
     display: flex;
-    background-color: rgb(180, 144, 221);
-    padding: 5px;
+    width: 100%;
+    background-color: purple;
 }
 
 .menu > li {
-    padding: 10px;
-    
+    padding: 5px 0px;
 }
 
 .menu > li > a {
+    padding: 10px;
+    text-decoration: none;
     color: white;
-    text-decoration: none; /* tirar sublinhado */
 }
 
+/* MAIN */
+
 main {
-    padding: 35px 60px;
-    background-image: url("./images/background.png"); 
+    width: 100%;
+    height: 95%;
+    padding: 3em;
     display: flex;
+    background-image: url(./images/background.png);
+}
+
+aside {
+    text-align: center;
+    margin: 1em;
+}
+
+article {
+    margin: 1em;
+    padding: 1em;
+    width: 100%;
     height: 100%;
 }
 
-.content {
-    margin-left: 50px;
-    display:flex;
-    flex-direction: column;
+
+.woman {
+    width: 100%;
 }
 
-.content-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.content-text > h1, p {
-    padding: 10px 0px;
-}
-
-.content-text > h1 {
-    font-size: 50px;
-    border: solid 1px blue;
+article > div {
+    padding: 10px;
 }
 
 .content-text > p {
-    font-size: 20px;
-    background-color: white;
+    padding-top: 5px;
 }
+
+/* PIES */
+
+section {
+    display: flex;
+    padding-top: 20px;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.pie {
+    border: solid 2px rgba(255, 206, 239, 0.555);
+    background-color: azure;
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.pie > img {
+    width: 100%;
+    padding: 5px 5px;
+}
+
+.pie > .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 5px;
+}
+
+.pie > .row > .title {
+    font-weight: bold;
+}
+
+.pie > p {
+    padding: 10px 5px;
+    font-size: 0.8em;
+}
+
+.pie > button {
+    margin: 5px;
+    width: 50px;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 206, 239, 0.555);
+    border-radius: 5px;
+    border: solid 1px  rgba(255, 146, 219, 0.555);
+}
+
+
