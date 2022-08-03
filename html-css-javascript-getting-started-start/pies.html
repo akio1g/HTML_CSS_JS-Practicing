@@ -53,5 +53,30 @@
             </ul>
         </nav>
     </footer>
+    <script>
+        window.addEventListener("DOMContentLoaded", function(e) {
+            const orderButtons = document.querySelectorAll("button[data-order]");
+
+            orderButtons.forEach(function(btn) {
+
+                btn.addEventListener("click",function(e) {
+                    const btn = e.currentTarget;
+                    const container = btn.parentNode; // will be class pie content
+
+                    const order = { // order's object
+                        id: btn.getAttribute("data-order"),
+                        title: container.querySelector(".title").innerText,
+                        price: container.querySelector(".price").innerText,
+                        desc: container.querySelector(".description").innerText
+                    };
+
+                    localStorage.setItem("order", JSON.stringify(order));
+
+                    const url = window.location.href.replace("pies.html", "order.html"); // switch the url
+                    window.location.href = url; // sets the browser location 
+                });
+            });
+        });
+    </script>
 </body>
 </html>
