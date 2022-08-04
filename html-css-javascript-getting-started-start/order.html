@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="site.css" type="text/css">
+    <link rel="stylesheet" href="newsite.css" type="text/css">
     <title>Order | Bethany's Pie Shop</title>
 </head>
 <body>
@@ -18,26 +18,41 @@
 
     <main>
         <aside>
-            <img src="./images/logo.png" alt="Logo Bethany's Pie Shop">
+            <a href="index.html"><img src="./images/logo.png" alt="Logo Bethany's Pie Shop"></a>
         </aside>
-        <article>
+        <article class="order">
             <h1>Order</h1>
-
-            <div class="pie">
-                <img src="">
-                    <div class="row">
-                        <div class="title"></div>
-                        <div class="price"></div>
+                <div class="payment_and_order">
+                    <div class="pie">
+                        <img src="">
+                            <div class="row">
+                                <div class="title"></div>
+                                <div class="price"></div>
+                            </div>
+                        <p class="description"></p>
                     </div>
-                <p class="description"></p>
-            </div>
-
-            <form action="" method="post">
-                <label for="name">Digite seu nome:</label>
-                <input type="text" id="name" name="name">
-                <input type="reset" value="Reset">
-                <input type="submit" value="Order"> 
-            </form>
+        
+                    <form onsubmit="save_data()" method="post">
+                        <input type="hidden" id="pie-order" name="pie-order">
+                        <div class="info_user">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name">
+                            <label for="phone">Number:</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="address">
+                            <label for="logradouro">Address:</label>
+                            <input type="text" id="logradouro" name="logradouro">
+                            <label for="number">Street number:</label>
+                            <input type="text" id="number" name="number">
+                        </div>
+                        <div class="buttons">
+                            <input type="reset" value="Reset">
+                            <input type="submit" value="Order"> 
+                        </div>
+                    </form>
+                </div>
+            
         </article>
     </main>
     <footer>
@@ -57,6 +72,9 @@
          
             if(order) { // if has value
                 const pieOrder = JSON.parse(order); // convert json > object
+
+                const orderInput = document.querySelector("#pie-order"); 
+                orderInput.value = order; // send the object information hidden in a field
              
                 const pie = document.querySelector(".pie"); // get the div pie
                 
@@ -71,11 +89,29 @@
                 const img = pie.querySelector("img"); // will be div.img
                 img.setAttribute("src", `images/${pieOrder.id}.png`); // set the src to path ./images/pierOrder.id.png
                 img.setAttribute("alt", pieOrder.title);  // set the alt
+
             }
-
-
-
         });
+
+        function save_data() {
+            let keyNumber = "" + (1 + localStorage.length) // defines the key number
+
+            const pieOrdered = JSON.parse(localStorage.getItem("order")); // calls the info of your order
+            const item = pieOrdered.title;
+            const price = pieOrdered.price;
+            const name = document.querySelector("#name").value;
+            const phone = document.querySelector("#phone").value;
+            const address = document.querySelector("#logradouro").value;
+            const number = document.querySelector("#number").value;
+
+            const order = {item:item, price:price, name:name, phone:phone, address:address, number:number};
+
+            localStorage.setItem(keyNumber, JSON.stringify(order)); // save the order on the local Storage
+            const url = window.location.href.replace("order.html", "index.html"); // switch the url
+            window.location.href = url;
+            window.alert("ORDER SUCCESSFUL!!!!")
+        }
+
     </script>
 </body>
 </html>
