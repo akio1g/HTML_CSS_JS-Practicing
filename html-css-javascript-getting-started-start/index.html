@@ -14,6 +14,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="pies.html">Pies</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About us</a></li>
         </ul>
     </nav>
 
@@ -27,7 +28,19 @@
             </div>
             <div class="content-text">
                 <h1>Welcome to Bethany's Pie Shop</h1>
-                <span>From pecan to plum, our pies are made in with the warmth and tradition of home. Take a moment to <a href="pies.html">browse our pies</a> and see which of our delectable desserts are soon to arrive on your doorstep.</span>
+                <hr>
+                <div class="promotion">
+                    <h3>Our Weekly Promotion!!</h3>
+                    <div class="pie">
+                        <img class="cheesecake" src="./images/cheesecake.png" alt="cheesecake">
+                            <div class="row">
+                                <div class="title">Cheesecake</div>
+                                <div class="price">R$15,00</div>
+                            </div>
+                        <p class="description">Delicious cake - Serves 4</p>
+                        <button data-order="cheesecake">Order</button>
+                    </div>
+                </div>
             </div>
         </article>
     </main>
@@ -37,8 +50,35 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="pies.html">Pies</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About us</a></li>
             </ul>
         </nav>
     </footer>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function(e) {
+            const orderButtons = document.querySelectorAll("button[data-order]");
+
+            orderButtons.forEach(function(btn) {
+
+                btn.addEventListener("click",function(e) {
+                    const btn = e.currentTarget;
+                    const container = btn.parentNode; // will be class pie content
+
+                    const order = { // order's object
+                        id: btn.getAttribute("data-order"),
+                        title: container.querySelector(".title").innerText,
+                        price: container.querySelector(".price").innerText,
+                        desc: container.querySelector(".description").innerText
+                    };
+
+                    localStorage.setItem("order", JSON.stringify(order));
+
+                    const url = window.location.href.replace("index.html", "order.html"); // switch the url
+                    window.location.href = url; // sets the browser location 
+                });
+            });
+        });
+    </script>
 </body>
 </html>
