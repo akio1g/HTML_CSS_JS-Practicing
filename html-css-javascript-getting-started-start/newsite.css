@@ -8,6 +8,7 @@
     }
 
 body {
+    height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     overflow: auto;
     background-image: url("./images/background.png");
@@ -38,7 +39,6 @@ li > a:hover {
 }
 
 footer {
-    position: relative;
     bottom: 0;
 }
 
@@ -58,7 +58,7 @@ aside > a > img {
 
 .content {
     text-align: center;
-    padding: 10px;
+    padding: 10px 50px 80px 50px;
 }
 
 .content-text > h1, p{
@@ -70,12 +70,11 @@ aside > a > img {
     max-width: 100%;
 }
 
-.content-text > p {
-    display: inline-block;
+.content-text > span {
     max-width: 500px;
 }
 
-.content-text > p > a:hover {
+.content-text > span > a:hover {
     color: blue;
     text-decoration: underline;
 }
