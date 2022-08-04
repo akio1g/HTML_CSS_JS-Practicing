@@ -11,13 +11,14 @@ body {
     flex-direction: column;
 }
 
-header {
+.card {
     display: flex;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
+    margin: 10px 0px;
 }
 
-header > div {
+.card > div {
     padding: 5px;
 }
 
