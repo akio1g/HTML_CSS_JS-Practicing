@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="site.css" type="text/css">
+    <title>Order | Bethany's Pie Shop</title>
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pies.html">Pies</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <aside>
+            <img src="./images/logo.png" alt="Logo Bethany's Pie Shop">
+        </aside>
+        <article>
+            <h1>Order</h1>
+
+            <div class="pie">
+                <img src="">
+                    <div class="row">
+                        <div class="title"></div>
+                        <div class="price"></div>
+                    </div>
+                <p class="description"></p>
+            </div>
+
+            <form action="" method="post">
+                <label for="name">Digite seu nome:</label>
+                <input type="text" id="name" name="name">
+                <input type="reset" value="Reset">
+                <input type="submit" value="Order"> 
+            </form>
+        </article>
+    </main>
+    <footer>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pies.html">Pies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script>
+         window.addEventListener("DOMContentLoaded", function(e) {
+
+            const order = localStorage.getItem("order");
+         
+            if(order) { // if has value
+                const pieOrder = JSON.parse(order); // convert json > object
+             
+                const pie = document.querySelector(".pie"); // get the div pie
+                
+                const title = pie.querySelector(".title"); // will be div.title
+                const price = pie.querySelector(".price"); // div.price
+                const desc = pie.querySelector(".description"); // div.desc
+
+                title.innerText = pieOrder.title; // put the value of order.title on div.title
+                price.innerText = pieOrder.price;// put the value of order.price on div.price
+                desc.innerText = pieOrder.desc;// put the value of order.desc on div.desc
+
+                const img = pie.querySelector("img"); // will be div.img
+                img.setAttribute("src", `images/${pieOrder.id}.png`); // set the src to path ./images/pierOrder.id.png
+                img.setAttribute("alt", pieOrder.title);  // set the alt
+            }
+
+
+
+        });
+    </script>
+</body>
+</html>
