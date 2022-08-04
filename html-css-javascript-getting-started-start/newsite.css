@@ -7,10 +7,11 @@
     text-decoration: none;
     }
 
-body {
+html, body {
     font-family: Arial, Helvetica, sans-serif;
     overflow: auto;
     background-image: url("./images/background.png");
+    height: 100vh;
 }
 
 /*  HEADER AND FOOTER */
@@ -37,9 +38,6 @@ li > a:hover {
     background-color: #b07be0;
 }
 
-footer {
-    bottom: 0;
-}
 
 /* MAIN */
 
@@ -57,7 +55,7 @@ aside > a > img {
 
 .content {
     text-align: center;
-    padding: 10px 50px 80px 50px;
+    padding: 10px 50px 20px 50px;
     width: 100%;
 }
 
@@ -94,6 +92,12 @@ aside > a > img {
     }
 }
 
+/* FOOTER */
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
 /* PIES */
 
 .menuPies {
