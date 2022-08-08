@@ -10,7 +10,7 @@
 <body>
     <nav>
         <ul class="menu">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html"><img src="./images/cake.svg" alt="mini logo home"></a></li>
             <li><a href="pies.html">Pies</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="about.html">About us</a></li>
@@ -35,18 +35,17 @@
         
                     <form onsubmit="save_data()" method="post">
                         <input type="hidden" id="pie-order" name="pie-order">
-                        <div class="info_user">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your name">
-                            <label for="phone">Number:</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-                        </div>
-                        <div class="address">
-                            <label for="logradouro">Address:</label>
-                            <input type="text" id="logradouro" name="logradouro" placeholder="Enter your address">
-                            <label for="number">Street number:</label>
-                            <input type="text" id="number" name="number" placeholder="Enter your street number">
-                        </div>
+                        <fieldset>
+                            <legend>Contact information</legend>
+                            <label>Name*: <input type="text" tabindex="1" required maxlength="80" id="name" name="name" placeholder="Enter your name"></label>
+                            <label>Number*: <input type="tel" tabindex="2" required pattern="\(\d{2}\) \d{5}-\d{4}" id="phone" name="phone" placeholder="Enter your phone number"> </label>
+                            <label><input type="radio" tabindex="3" id="numberInfo" name="numberInfo" value="phone"> Phone</label>
+                            <label><input type="radio"  id="numberInfo" name="numberInfo" value="cellphone"> Cellphone</label>
+                            <label>E-mail*: <input type="email" tabindex="4" required id="email" name="email" placeholder="Enter your e-mail"></label>
+                            <label>Address*: <input type="text" tabindex="5" required id="logradouro" name="logradouro" placeholder="Enter your address"></label>
+                            <label>Street number*: <input type="number" tabindex="6" required min="0" id="number" name="number" placeholder="Enter your street number"></label>
+                        </fieldset>
+                        
                         <div class="buttons">
                             <input type="reset" value="Reset">
                             <input type="submit" value="Order"> 
@@ -63,7 +62,7 @@
     <script>
          window.addEventListener("DOMContentLoaded", function(e) {
 
-            const order = localStorage.getItem("order");
+            const order = sessionStorage.getItem("order");
          
             if(order) { // if has value
                 const pieOrder = JSON.parse(order); // convert json > object
@@ -91,15 +90,17 @@
         function save_data() {
             let keyNumber = "" + (1 + localStorage.length) // defines the key number
 
-            const pieOrdered = JSON.parse(localStorage.getItem("order")); // calls the info of your order
+            const pieOrdered = JSON.parse(sessionStorage.getItem("order")); // calls the info of your order
             const item = pieOrdered.title;
             const price = pieOrdered.price;
             const name = document.querySelector("#name").value;
             const phone = document.querySelector("#phone").value;
+            const phoneType = document.querySelector("#numberInfo").value;
+            const email = document.querySelector("#email").value;
             const address = document.querySelector("#logradouro").value;
             const number = document.querySelector("#number").value;
 
-            const order = {item:item, price:price, name:name, phone:phone, address:address, number:number};
+            const order = {item:item, price:price, name:name, phone:phone, phoneType:phoneType, email:email, address:address, number:number};
 
             localStorage.setItem(keyNumber, JSON.stringify(order)); // save the order on the local Storage
             const url = window.location.href.replace("order.html", "index.html"); // switch the url

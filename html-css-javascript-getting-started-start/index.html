@@ -11,7 +11,7 @@
 <body>
     <nav>
         <ul class="menu">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html"><img src="./images/cake.svg" alt="mini logo home"></a></li>
             <li><a href="pies.html">Pies</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="about.html">About us</a></li>
@@ -29,8 +29,8 @@
             <div class="content-text">
                 <h1>Welcome to Bethany's Pie Shop</h1>
                 <hr>
-                <div class="promotion">
-                    <h3>Our Weekly Promotion!!</h3>
+                <h3>Our Weekly Promotion!!</h3>
+                <section class="promotion">
                     <div class="pie">
                         <img class="cheesecake" src="./images/cheesecake.png" alt="cheesecake">
                             <div class="row">
@@ -40,12 +40,40 @@
                         <p class="description">Delicious cake - Serves 4</p>
                         <button data-order="cheesecake">Order</button>
                     </div>
-                </div>
+                    <div class="pie">
+                        <img class="cheesecake" src="./images/cheesecake.png" alt="cheesecake">
+                            <div class="row">
+                                <div class="title">Cheesecake</div>
+                                <div class="price">R$15,00</div>
+                            </div>
+                        <p class="description">Delicious cake - Serves 4</p>
+                        <button data-order="cheesecake">Order</button>
+                    </div>
+                    <div class="pie">
+                        <img class="cheesecake" src="./images/cheesecake.png" alt="cheesecake">
+                            <div class="row">
+                                <div class="title">Cheesecake</div>
+                                <div class="price">R$15,00</div>
+                            </div>
+                        <p class="description">Delicious cake - Serves 4</p>
+                        <button data-order="cheesecake">Order</button>
+                    </div><div class="pie">
+                        <img class="cheesecake" src="./images/cheesecake.png" alt="cheesecake">
+                            <div class="row">
+                                <div class="title">Cheesecake</div>
+                                <div class="price">R$15,00</div>
+                            </div>
+                        <p class="description">Delicious cake - Serves 4</p>
+                        <button data-order="cheesecake">Order</button>
+                    </div>
+                </section>
             </div>
         </article>
     </main>
     <footer>
-
+        <p>Our address is <address>Bethany's Pie Shop - Bakery Street 555 Brussels Belgium</address>
+        </p>
+        <small>&copy;2020 Bethany's Pie Shop - All rights reserved</small>
     </footer>
 
     <script>
@@ -65,7 +93,7 @@
                         desc: container.querySelector(".description").innerText
                     };
 
-                    localStorage.setItem("order", JSON.stringify(order));
+                    sessionStorage.setItem("order", JSON.stringify(order));
 
                     const url = window.location.href.replace("index.html", "order.html"); // switch the url
                     window.location.href = url; // sets the browser location 
