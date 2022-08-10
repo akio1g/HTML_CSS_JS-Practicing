@@ -78,11 +78,11 @@ article {
     max-width: 100%;
 }
 
-.content-text > span {
-    max-width: 500px;
+.content-text > p {
+    text-align: justify;
 }
 
-.content-text > span > a:hover {
+.content-text > p > a:hover {
     color: blue;
     text-decoration: underline;
 }

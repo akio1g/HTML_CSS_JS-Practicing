@@ -1,0 +1,43 @@
+@media only screen and (min-width:768px) {
+
+    header h1 {
+        width: 30%;
+        font-size: 45px;
+        padding-left: 15px;
+    }
+
+    nav {
+        display: flex;
+    }
+
+    nav button {
+        display: none;
+    }
+
+    #menu {
+        display: flex;
+        width: 100%;
+    }
+
+    #menu > li {
+        width: 25%;
+        height: auto;
+    }
+
+    li > a {
+        padding: 10px 0px;
+        font-size: 20px;
+    }
+
+    main > div {
+        display: flex;
+    }
+
+    section {
+        margin: 20px;
+    }
+
+    section img {
+        height: 100%;
+    }
+}

@@ -4,71 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name=”viewport” content=”width=device-width, initial-scale=1”>
-    <link rel="stylesheet" href="newsite.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/small.css">
+    <link rel="stylesheet" href="css/medium.css">
+    <link rel="stylesheet" href="css/large.css">
+    
     <title>Bethany's Pie Shop</title>
 </head>
 <body>
+    <header>
+        <img src="./images/cake.svg" alt="Bethany's Pie Shop Logo">
+        <h1>Bethany's Pie Shop</h1>
+    </header>
     <nav>
-        <ul class="menu">
-            <li><a href="index.html"><img src="./images/cake.svg" alt="mini logo home"></a></li>
+        <button id="hamburgerButton" onclick="openMenu()">&#9776;</button>
+        <ul id="menu">
+            <li><a class="active" href="index.html">Home</a></li>
             <li><a href="pies.html">Pies</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="about.html">About us</a></li>
         </ul>
     </nav>
-
     <main>
-        <aside>
-            <a href="index.html"><img src="./images/logo.png" alt="Logo Bethany's Pie Shop"></a>
-        </aside>
-        <article class="content">
-            <div class="content-image">
-                <img class="woman" src="./images/banner.png" alt="Woman">
-            </div>
-            <div class="content-text">
-                <h1>Welcome to Bethany's Pie Shop</h1>
-                <hr>
-                <h3>Our Weekly Promotion!!</h3>
-                <section class="promotion">
-                    <div class="pie">
-                        <img class="cheesecake" src="./images/cheesecake.png" alt="cheesecake">
-                            <div class="row">
-                                <div class="title">Cheesecake</div>
-                                <div class="price">R$15,00</div>
-                            </div>
-                        <p class="description">Delicious cake - Serves 4</p>
-                        <button data-order="cheesecake">Order</button>
-                    </div>
-                    <div class="pie">
-                        <img class="cheesecake" src="./images/cheesecake.png" alt="cheesecake">
-                            <div class="row">
-                                <div class="title">Cheesecake</div>
-                                <div class="price">R$15,00</div>
-                            </div>
-                        <p class="description">Delicious cake - Serves 4</p>
-                        <button data-order="cheesecake">Order</button>
-                    </div>
-                    <div class="pie">
-                        <img class="cheesecake" src="./images/cheesecake.png" alt="cheesecake">
-                            <div class="row">
-                                <div class="title">Cheesecake</div>
-                                <div class="price">R$15,00</div>
-                            </div>
-                        <p class="description">Delicious cake - Serves 4</p>
-                        <button data-order="cheesecake">Order</button>
-                    </div><div class="pie">
-                        <img class="cheesecake" src="./images/cheesecake.png" alt="cheesecake">
-                            <div class="row">
-                                <div class="title">Cheesecake</div>
-                                <div class="price">R$15,00</div>
-                            </div>
-                        <p class="description">Delicious cake - Serves 4</p>
-                        <button data-order="cheesecake">Order</button>
-                    </div>
-                </section>
-            </div>
-        </article>
+        <img class="woman" src="./images/banner.png" alt="Woman">
+        <h3>Our Weekly Promotion!!</h3>
+        <div class="weekly-promotion">
+            <section class="cheesecake">
+                <img src="./images/cheesecake.png" alt="cheesecake">
+                <div class="description">
+                    <div class="title">Cheesecake</div>
+                    <div class="price">R$15,00</div>
+                </div>
+                <button>Order Now!!</button>
+            </section>
+            <section class="cheesecake">
+                <img src="./images/cheesecake.png" alt="cheesecake">
+                <div class="description">
+                    <div class="title">Cheesecake</div>
+                    <div class="price">R$15,00</div>
+                </div>
+                <button>Order Now!!</button>
+            </section>
+        </div>
     </main>
     <footer>
         <p>Our address is <address>Bethany's Pie Shop - Bakery Street 555 Brussels Belgium</address>
@@ -76,30 +56,6 @@
         <small>&copy;2020 Bethany's Pie Shop - All rights reserved</small>
     </footer>
 
-    <script>
-        window.addEventListener("DOMContentLoaded", function(e) {
-            const orderButtons = document.querySelectorAll("button[data-order]");
-
-            orderButtons.forEach(function(btn) {
-
-                btn.addEventListener("click",function(e) {
-                    const btn = e.currentTarget;
-                    const container = btn.parentNode; // will be class pie content
-
-                    const order = { // order's object
-                        id: btn.getAttribute("data-order"),
-                        title: container.querySelector(".title").innerText,
-                        price: container.querySelector(".price").innerText,
-                        desc: container.querySelector(".description").innerText
-                    };
-
-                    sessionStorage.setItem("order", JSON.stringify(order));
-
-                    const url = window.location.href.replace("index.html", "order.html"); // switch the url
-                    window.location.href = url; // sets the browser location 
-                });
-            });
-        });
-    </script>
+    <script src="js/functions.js"></script>
 </body>
 </html>
