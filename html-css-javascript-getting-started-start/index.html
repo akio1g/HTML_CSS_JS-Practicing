@@ -7,11 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,700;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/small.css">
-    <link rel="stylesheet" href="css/medium.css">
-    <link rel="stylesheet" href="css/large.css">
     
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Bethany's Pie Shop</title>
 </head>
 <body>
@@ -22,17 +21,17 @@
     <nav>
         <button id="hamburgerButton" onclick="openMenu()">&#9776;</button>
         <ul id="menu">
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="pies.html">Pies</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html">About us</a></li>
+            <li class="medium-6 large-3"><a class="active" href="index.html">Home</a></li>
+            <li class="medium-6 large-3"><a href="pies.html">Pies</a></li>
+            <li class="medium-6 large-3"><a href="contact.html">Contact</a></li>
+            <li class="medium-6 large-3"><a href="about.html">About us</a></li>
         </ul>
     </nav>
     <main>
         <img class="woman" src="./images/banner.png" alt="Woman">
         <h3>Our Weekly Promotion!!</h3>
-        <div class="weekly-promotion">
-            <section class="cheesecake">
+        <div class="weekly-promotion row">
+            <section class="cheesecake small-12 medium-6 large-3">
                 <img src="./images/cheesecake.png" alt="cheesecake">
                 <div class="description">
                     <div class="title">Cheesecake</div>
@@ -40,7 +39,7 @@
                 </div>
                 <button>Order Now!!</button>
             </section>
-            <section class="cheesecake">
+            <section class="cheesecake small-12 medium-6 large-3">
                 <img src="./images/cheesecake.png" alt="cheesecake">
                 <div class="description">
                     <div class="title">Cheesecake</div>
@@ -51,11 +50,40 @@
         </div>
     </main>
     <footer>
-        <p>Our address is <address>Bethany's Pie Shop - Bakery Street 555 Brussels Belgium</address>
-        </p>
-        <small>&copy;2020 Bethany's Pie Shop - All rights reserved</small>
+        <div class="row">
+       
+        <section class="column small-12 medium-6 large-3">
+            <h2>Location</h2>
+            <ul>
+                <li>Bethany's Pie Shop</li>
+                <li>123 Bakery Street</li> 
+                <li>Brussels, Belgium</li>
+            </ul>
+        </section>
+        <section class="column small-12 medium-6 large-3">
+            <h2>Company</h2>
+            <ul>
+                <li>Catering</li>
+                <li>Delivery</li> 
+                <li>Swag Shop</li>
+                <li>Support</li>
+            </ul>
+        </section>
+        <section class="column small-12 medium-6 large-3">
+            <h2>Social</h2>
+            <ul>
+                <li>Facebook</li>
+                <li>Twitter</li> 
+                <li>Instagram</li>
+            </ul>
+        </section>
+         <section class="column small-12 medium-6 large-3">
+            <h2>About Us</h2>
+            <img src="images/logo2.png" alt="logo">
+            <p>&copy; 2020 &bull; all rights reserved.</p>
+        </section>
+        </div> <!-- end row -->
     </footer>
-
     <script src="js/functions.js"></script>
 </body>
 </html>
