@@ -1,9 +1,58 @@
-@media only screen and (min-width:1024px) {
+body {
+    grid-template: min-content 1fr min-content / 350px minmax(min-content, 60%) 1fr;
+    grid-template-areas: "header header header"
+                         "nav  main aside"
+                         "footer footer footer";
 
-@for $i from 1 through 12 {
-    $w: ($i / 12) * 100%;
-    .large-#{$i} {flex-basis: $w;}
-}
+    header {
+        grid-area: header;
+    }
 
+    nav {
+        background-color: transparent;
+        grid-area: nav;
+        button {
+            display: none;
+        }
+        #menu {
+            .logoMenu {
+                display: block;
+            }
+            display: block;
+            height: 100%;
 
+            li {
+                text-align: center;
+                a {
+                    display: block;
+                    text-decoration: none;
+                    font-size: 25px;
+                    padding: 25px 0px;
+                }
+
+                a:hover {
+                    background-color: rgba(0,0,0,0.5);
+                }
+            }
+        }
+    }
+
+    main {
+        grid-area: main;
+        height: 100vh;
+        overflow: scroll;
+
+        h3 {
+            font-size: 35px;
+        }
+        .weekly-promotion {
+            margin-top: 25px;
+            grid-template: min-content / 1fr 1fr 1fr;
+            row-gap: 25px;
+        }
+    }
+
+    footer {
+        grid-area: footer;
+    }
 }

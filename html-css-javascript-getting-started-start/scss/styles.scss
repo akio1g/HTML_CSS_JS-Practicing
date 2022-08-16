@@ -1,9 +1,13 @@
-@import "normalize";
+@import "starter";
 
 @import "variables";
 
 @import "small";
 
-@import "medium";
+@media screen and (min-width: 762px) {
+    @import "medium";
+}
 
-@import "large";
+@media screen and (min-width: 1200px) {
+    @import "large";
+}
