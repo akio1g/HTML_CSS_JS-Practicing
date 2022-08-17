@@ -9,6 +9,7 @@ body {
     }
 
     nav {
+        
         background-color: transparent;
         grid-area: nav;
         button {
@@ -39,8 +40,6 @@ body {
 
     main {
         grid-area: main;
-        height: 100vh;
-        overflow: scroll;
 
         h3 {
             font-size: 35px;
